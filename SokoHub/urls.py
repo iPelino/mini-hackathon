@@ -16,12 +16,18 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from SokoHub import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('products.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('products/', include('products.urls')),
+    path('orders/', include('orders.urls')),
+
 ]
 
 if settings.DEBUG:
